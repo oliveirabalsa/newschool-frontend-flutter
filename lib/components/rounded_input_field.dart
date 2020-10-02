@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newschoolfrontendflutter/components/text_field_container.dart';
 import 'package:newschoolfrontendflutter/constants.dart';
 
 class RoundedInputField extends StatelessWidget {
@@ -20,19 +19,24 @@ class RoundedInputField extends StatelessWidget {
         width: size.width * 0.8,
         child: new Theme(
             data: new ThemeData(
-                primaryColor: Colors.red,
-                accentColor: Colors.orange,
-                hintColor: Colors.white),
+              textSelectionColor: Colors.white,
+              primaryColor: Colors.red,
+              accentColor: Colors.orange,
+              hintColor: Colors.white,
+            ),
             child: new TextField(
               onChanged: onChanged,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
                 hintText: hintText,
-                labelStyle: new TextStyle(color: const Color(0xFF424242)),
+                hintStyle: new TextStyle(fontWeight: FontWeight.bold),
+                labelStyle: new TextStyle(
+                    color: const Color(0xFFFFFFFF),
+                    fontWeight: FontWeight.bold),
                 enabledBorder: new UnderlineInputBorder(
-                    borderSide: new BorderSide(color: Colors.white)),
+                    borderSide: new BorderSide(color: Colors.white, width: 2)),
                 focusedBorder: UnderlineInputBorder(
-                    borderSide: new BorderSide(color: Colors.white)),
+                    borderSide: new BorderSide(color: Colors.white, width: 2)),
               ),
             )));
   }

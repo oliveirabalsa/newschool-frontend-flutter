@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'New School',
       theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.white,
-      ),
+          primaryColor: kPrimaryColor,
+          scaffoldBackgroundColor: Colors.white,
+          fontFamily: 'Montserrat'),
       home: LoginScreen(),
     );
   }
