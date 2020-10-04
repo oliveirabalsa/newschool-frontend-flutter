@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:newschoolfrontendflutter/Screens/Login/components/background.dart';
+import 'package:newschoolfrontendflutter/Screens/Signup/signup_screen.dart';
 import 'package:newschoolfrontendflutter/components/rounded_button.dart';
 import 'package:newschoolfrontendflutter/components/rounded_button_white.dart';
 import 'package:newschoolfrontendflutter/Screens/Login/components/or_divider.dart';
 import 'package:newschoolfrontendflutter/Screens/Login/components/social_icon.dart';
 import 'package:newschoolfrontendflutter/components/rounded_input_field.dart';
-import 'package:newschoolfrontendflutter/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
@@ -41,7 +41,12 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.05),
             RoundedButtonWhite(
               text: "CADASTRAR",
-              press: () {},
+              press: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => SignUpScreen()));
+              },
             ),
             RoundedButton(
               text: "ENTRAR",
