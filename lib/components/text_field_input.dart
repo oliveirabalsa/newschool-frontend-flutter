@@ -45,7 +45,7 @@ class TextFieldInput extends StatelessWidget {
                   labelText: labelText,
                   hintText: hintText,
                   hintStyle: new TextStyle(
-                      height: 1.5,
+                      height: 1.3,
                       fontWeight: FontWeight.bold,
                       color: kSecondColor),
                   labelStyle: new TextStyle(
