@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:newschoolfrontendflutter/constants.dart';
 
-class TextFieldInput extends StatelessWidget {
+class TextFieldInput extends StatefulWidget {
   final String hintText;
   final String labelText;
+  final bool isVisible;
   final icon;
   final ValueChanged<String> onChanged;
 
-  const TextFieldInput(
-      {Key key,
-      this.hintText,
-      this.labelText,
-      this.onChanged,
-      this.icon,
-      EdgeInsets contentPadding})
-      : super(key: key);
+  const TextFieldInput({
+    Key key,
+    this.hintText,
+    this.labelText,
+    this.onChanged,
+    this.icon,
+    this.isVisible,
+    EdgeInsets contentPadding,
+  }) : super(key: key);
 
   @override
+  _TextFieldInputState createState() => _TextFieldInputState();
+}
+
+class _TextFieldInputState extends State<TextFieldInput> {
+  @override
   Widget build(BuildContext context) {
+    bool show = widget.isVisible;
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(bottom: 0),
@@ -30,21 +38,29 @@ class TextFieldInput extends StatelessWidget {
                 accentColor: Colors.orange,
                 hintColor: kPrimaryColor,
               ),
-              child: new TextField(
+              child: TextField(
+                obscureText: (widget.isVisible != null ? true : false),
                 enableInteractiveSelection: false,
                 cursorColor: kPrimaryColor,
                 decoration: InputDecoration(
-                  suffixIcon: Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Icon(
-                      icon,
-                      color: kPrimaryColor,
+                  suffixIcon: GestureDetector(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 15),
+                      child: Icon(
+                        widget.icon,
+                        color: kPrimaryColor,
+                      ),
                     ),
+                    onTap: () => {
+                      setState(() {
+                        print(show);
+                      })
+                    },
                   ),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
-                  labelText: labelText,
-                  hintText: hintText,
-                  hintStyle: new TextStyle(
+                  labelText: widget.labelText,
+                  hintText: widget.hintText,
+                  hintStyle: TextStyle(
                       height: 1.3,
                       fontWeight: FontWeight.bold,
                       color: kSecondColor),

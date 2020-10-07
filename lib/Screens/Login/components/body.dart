@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newschoolfrontendflutter/Screens/Home/home_screen.dart';
 import 'package:newschoolfrontendflutter/Screens/Login/components/background.dart';
 import 'package:newschoolfrontendflutter/Screens/Signup/signup_screen.dart';
 import 'package:newschoolfrontendflutter/components/rounded_button.dart';
@@ -8,13 +9,20 @@ import 'package:newschoolfrontendflutter/Screens/Login/components/social_icon.da
 import 'package:newschoolfrontendflutter/components/rounded_input_field.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({
     Key key,
   }) : super(key: key);
 
   @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  @override
   Widget build(BuildContext context) {
+    String email = '';
+    String password = '';
     Size size = MediaQuery.of(context).size;
     return Background(
       child: SingleChildScrollView(
@@ -31,26 +39,35 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.05),
             RoundedInputField(
               hintText: "E-mail",
-              onChanged: (value) {},
+              onChanged: (value) {
+                email = value;
+              },
             ),
-            SizedBox(height: size.height * 0.05),
+            SizedBox(height: size.height * 0.03),
             RoundedInputField(
+              isObscure: true,
               hintText: "Senha",
-              onChanged: (value) {},
+              onChanged: (value) {
+                password = value;
+              },
             ),
             SizedBox(height: size.height * 0.05),
             RoundedButtonWhite(
               text: "CADASTRAR",
               press: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => SignUpScreen()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => SignUpScreen()));
               },
             ),
             RoundedButton(
               text: "ENTRAR",
-              press: () {},
+              press: () {
+                if (email == 'leo@leo.com' && password == '123456') {
+                  print('siii');
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                }
+              },
             ),
             SizedBox(height: size.height * 0.03),
             OrDivider(),

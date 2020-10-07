@@ -1,3 +1,4 @@
+import 'package:newschoolfrontendflutter/Screens/Home/home_screen.dart';
 import 'package:newschoolfrontendflutter/Screens/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:newschoolfrontendflutter/constants.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
           primaryColor: kPrimaryColor,
           scaffoldBackgroundColor: Colors.white,
           fontFamily: 'Montserrat'),
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }

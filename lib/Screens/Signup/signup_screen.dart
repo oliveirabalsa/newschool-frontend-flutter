@@ -99,10 +99,12 @@ class SignUpScreen extends StatelessWidget {
                       TextFieldInput(
                         hintText: 'Digite sua senha',
                         icon: Icons.visibility,
+                        isVisible: true,
                       ),
                       TextFieldInput(
                         hintText: 'Confirme sua senha',
                         icon: Icons.visibility,
+                        isVisible: true,
                       ),
                       SizedBox(height: size.height * 0.03),
                       ButtonPrimary(
@@ -116,11 +118,8 @@ class SignUpScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(10),
                             child: new GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            LoginScreen()));
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => LoginScreen()));
                               },
                               child: Text(
                                 'Ops, ja tenho conta',

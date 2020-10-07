@@ -4,12 +4,14 @@ import 'package:newschoolfrontendflutter/constants.dart';
 class RoundedInputField extends StatelessWidget {
   final String hintText;
   final IconData icon;
+  final bool isObscure;
   final ValueChanged<String> onChanged;
   const RoundedInputField({
     Key key,
     this.hintText,
     this.icon = Icons.person,
     this.onChanged,
+    this.isObscure,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,9 @@ class RoundedInputField extends StatelessWidget {
               hintColor: Colors.white,
             ),
             child: new TextField(
+              textAlignVertical: TextAlignVertical.bottom,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+              obscureText: (isObscure != null ? true : false),
               onChanged: onChanged,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
