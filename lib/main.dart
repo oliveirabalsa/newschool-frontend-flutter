@@ -1,5 +1,4 @@
-import 'package:newschoolfrontendflutter/Screens/Home/home_screen.dart';
-import 'package:newschoolfrontendflutter/Screens/Login/login_screen.dart';
+import 'package:newschoolfrontendflutter/Screens/Private/Home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:newschoolfrontendflutter/constants.dart';
 

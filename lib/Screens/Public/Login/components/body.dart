@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:newschoolfrontendflutter/Screens/Home/home_screen.dart';
-import 'package:newschoolfrontendflutter/Screens/Login/components/background.dart';
-import 'package:newschoolfrontendflutter/Screens/Signup/signup_screen.dart';
+import 'package:newschoolfrontendflutter/Screens/Private/Home/home_screen.dart';
+import 'package:newschoolfrontendflutter/Screens/Public/Login/components/background.dart';
+import 'package:newschoolfrontendflutter/Screens/Public/Signup/signup_screen.dart';
 import 'package:newschoolfrontendflutter/components/rounded_button.dart';
 import 'package:newschoolfrontendflutter/components/rounded_button_white.dart';
-import 'package:newschoolfrontendflutter/Screens/Login/components/or_divider.dart';
-import 'package:newschoolfrontendflutter/Screens/Login/components/social_icon.dart';
+import 'package:newschoolfrontendflutter/Screens/Public/Login/components/or_divider.dart';
+import 'package:newschoolfrontendflutter/Screens/Public/Login/components/social_icon.dart';
 import 'package:newschoolfrontendflutter/components/rounded_input_field.dart';
 import 'package:flutter_svg/svg.dart';
 

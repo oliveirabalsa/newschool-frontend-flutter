@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newschoolfrontendflutter/Screens/Login/components/body.dart';
+import 'package:newschoolfrontendflutter/Screens/Public/Login/components/body.dart';
 
 class LoginScreen extends StatelessWidget {
   @override

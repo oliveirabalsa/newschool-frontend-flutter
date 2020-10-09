@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newschoolfrontendflutter/components/course_card.dart';
 import 'package:newschoolfrontendflutter/components/navigation_bar.dart';
+import 'package:newschoolfrontendflutter/components/side_bar_navigator.dart';
 import 'package:newschoolfrontendflutter/constants.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,6 +10,18 @@ class HomeScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      drawerScrimColor: Colors.transparent,
+      drawer: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            child: Container(
+                width: size.width,
+                height: size.height * 0.92,
+                child: NavDrawer()),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

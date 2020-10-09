@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:newschoolfrontendflutter/Screens/Login/login_screen.dart';
+import 'package:newschoolfrontendflutter/Screens/Public/Login/login_screen.dart';
 import 'package:newschoolfrontendflutter/components/button_primary.dart';
 import 'package:newschoolfrontendflutter/components/select_options_field.dart';
 import 'package:newschoolfrontendflutter/components/text_field_input.dart';
