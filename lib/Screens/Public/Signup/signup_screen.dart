@@ -6,11 +6,16 @@ import 'package:newschoolfrontendflutter/components/select_options_field.dart';
 import 'package:newschoolfrontendflutter/components/text_field_input.dart';
 import 'package:newschoolfrontendflutter/constants.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
+  @override
+  _SignUpScreenState createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  String dropdownValue = 'Aluno';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -62,7 +67,7 @@ class SignUpScreen extends StatelessWidget {
                         labelText: 'E o seu e-mail?',
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 4),
+                        padding: const EdgeInsets.only(left: 20, top: 15),
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Container(
@@ -76,11 +81,52 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      MyStatefulWidget(),
-                      TextFieldInput(
-                        hintText: 'Digite o nome da sua escola',
-                        labelText: 'Onde estuda?',
+                      Padding(
+                        padding: const EdgeInsets.only(left: 21, right: 21),
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          value: dropdownValue,
+                          icon: Icon(
+                            Icons.arrow_drop_down,
+                            color: kPrimaryColor,
+                          ),
+                          iconSize: 24,
+                          elevation: 16,
+                          style: TextStyle(
+                              height: 1.3,
+                              fontWeight: FontWeight.bold,
+                              color: kSecondColor,
+                              fontSize: 16),
+                          underline: Container(
+                            height: 2,
+                            color: kPrimaryColor,
+                          ),
+                          onChanged: (String newValue) {
+                            setState(() {
+                              dropdownValue = newValue;
+                            });
+                          },
+                          items: <String>[
+                            'Aluno',
+                            'Ex-Aluno',
+                            'Professor',
+                            'Outros'
+                          ].map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                        ),
                       ),
+                      dropdownValue == 'Aluno'
+                          ? TextFieldInput(
+                              hintText: 'Digite o nome da sua escola',
+                              labelText: 'Onde estuda?',
+                            )
+                          : SizedBox(
+                              height: size.height * 0.0,
+                            ),
                       Padding(
                         padding: const EdgeInsets.only(left: 22, top: 15),
                         child: Align(
@@ -118,8 +164,7 @@ class SignUpScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(10),
                             child: new GestureDetector(
                               onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => LoginScreen()));
+                                Navigator.pushNamed(context, '/');
                               },
                               child: Text(
                                 'Ops, ja tenho conta',

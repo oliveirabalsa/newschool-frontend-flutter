@@ -11,17 +11,8 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       drawerScrimColor: Colors.transparent,
-      drawer: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            child: Container(
-                width: size.width,
-                height: size.height * 0.92,
-                child: NavDrawer()),
-          ),
-        ],
-      ),
+      drawer: NavDrawer(),
+      bottomNavigationBar: NavigationBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -89,7 +80,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: NavigationBar(),
     );
   }
 }

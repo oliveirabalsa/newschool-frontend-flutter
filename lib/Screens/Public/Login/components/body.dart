@@ -19,6 +19,15 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  bool _isObscure = true;
+  void _togglevisibility() {
+    setState(() {
+      _isObscure = !_isObscure;
+    });
+  }
+
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     String email = '';
@@ -26,69 +35,82 @@ class _BodyState extends State<Body> {
     Size size = MediaQuery.of(context).size;
     return Background(
       child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/images/logo.svg",
-              height: size.height * 0.10,
-              width: 10,
-              color: Colors.white,
-            ),
-            SizedBox(height: size.height * 0.05),
-            RoundedInputField(
-              hintText: "E-mail",
-              onChanged: (value) {
-                email = value;
-              },
-            ),
-            SizedBox(height: size.height * 0.03),
-            RoundedInputField(
-              isObscure: true,
-              hintText: "Senha",
-              onChanged: (value) {
-                password = value;
-              },
-            ),
-            SizedBox(height: size.height * 0.05),
-            RoundedButtonWhite(
-              text: "CADASTRAR",
-              press: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => SignUpScreen()));
-              },
-            ),
-            RoundedButton(
-              text: "ENTRAR",
-              press: () {
-                if (email == 'leo@leo.com' && password == '123456') {
-                  print('siii');
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
-                }
-              },
-            ),
-            SizedBox(height: size.height * 0.03),
-            OrDivider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SocalIcon(
-                  iconSrc: "assets/icons/facebook.svg",
-                  press: () {},
-                ),
-                SocalIcon(
-                  iconSrc: "assets/icons/twitter.svg",
-                  press: () {},
-                ),
-                SocalIcon(
-                  iconSrc: "assets/icons/google-plus.svg",
-                  press: () {},
-                ),
-              ],
-            )
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: size.height * 0.03),
+              SvgPicture.asset(
+                "assets/images/logo.svg",
+                height: size.height * 0.10,
+                width: 10,
+                color: Colors.white,
+              ),
+              SizedBox(height: size.height * 0.05),
+              RoundedInputField(
+                hintText: "E-mail",
+                onChanged: (value) {
+                  email = value;
+                },
+              ),
+              SizedBox(height: size.height * 0.03),
+              RoundedInputField(
+                validator: (val) => val.length < 6 ? 'Senha muito curta' : null,
+                icon: _isObscure ? Icons.visibility : Icons.visibility_off,
+                iconPressed: () {
+                  setState(() {
+                    _togglevisibility();
+                  });
+                },
+                isObscure: _isObscure ? "true" : "false",
+                hintText: "Senha",
+                onChanged: (value) {
+                  password = value;
+                },
+              ),
+              SizedBox(height: size.height * 0.05),
+              RoundedButtonWhite(
+                text: "CADASTRAR",
+                press: () {
+                  Navigator.pushNamed(context, '/signup');
+                },
+              ),
+              RoundedButton(
+                text: "ENTRAR",
+                press: () {
+                  if (_formKey.currentState.validate()) {
+                    print('bom');
+                    Scaffold.of(context)
+                        .showSnackBar(SnackBar(content: Text('oi')));
+                  }
+                  //   if (email.trim() == 'leo@leo.com' && password == '123456') {
+                  //     print('siii');
+                  //     Navigator.pushNamed(context, '/home');
+                  // }
+                },
+              ),
+              SizedBox(height: size.height * 0.03),
+              OrDivider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SocalIcon(
+                    iconSrc: "assets/icons/facebook.svg",
+                    press: () {},
+                  ),
+                  SocalIcon(
+                    iconSrc: "assets/icons/twitter.svg",
+                    press: () {},
+                  ),
+                  SocalIcon(
+                    iconSrc: "assets/icons/google-plus.svg",
+                    press: () {},
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

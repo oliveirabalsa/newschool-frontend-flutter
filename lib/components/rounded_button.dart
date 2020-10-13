@@ -25,13 +25,13 @@ class RoundedButton extends StatelessWidget {
           color: Colors.transparent,
           shape: RoundedRectangleBorder(
               side: BorderSide(
-                  color: Colors.white, width: 2, style: BorderStyle.solid),
-              borderRadius: BorderRadius.circular(10)),
+                  color: Colors.white, width: 1, style: BorderStyle.solid),
+              borderRadius: BorderRadius.circular(5)),
           onPressed: press,
           child: Text(
             text,
             style: TextStyle(
-                color: textColor, fontWeight: FontWeight.w800, fontSize: 16),
+                color: textColor, fontWeight: FontWeight.w900, fontSize: 12),
           ),
         ),
       ),

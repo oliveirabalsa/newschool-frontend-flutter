@@ -20,7 +20,7 @@ class RoundedButtonWhite extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 8),
       width: size.width * 0.8,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(5),
         child: FlatButton(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           color: color,
@@ -28,7 +28,7 @@ class RoundedButtonWhite extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-                color: textColor, fontWeight: FontWeight.w800, fontSize: 16),
+                color: textColor, fontWeight: FontWeight.w900, fontSize: 12),
           ),
         ),
       ),

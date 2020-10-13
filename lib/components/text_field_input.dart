@@ -60,8 +60,10 @@ class _TextFieldInputState extends State<TextFieldInput> {
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelText: widget.labelText,
                   hintText: widget.hintText,
+                  contentPadding: EdgeInsets.only(top: 15.0, bottom: 3),
+                  isDense: true,
                   hintStyle: TextStyle(
-                      height: 1.3,
+                      height: 2,
                       fontWeight: FontWeight.bold,
                       color: kSecondColor),
                   labelStyle: new TextStyle(

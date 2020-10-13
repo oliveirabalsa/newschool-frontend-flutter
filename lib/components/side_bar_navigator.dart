@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newschoolfrontendflutter/components/side_list_field.dart';
 import 'package:newschoolfrontendflutter/constants.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 
@@ -6,232 +7,179 @@ class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Drawer(
-      elevation: 0.0,
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            child: Container(
-              color: Colors.blue[100],
-              width: 100,
-              height: 100,
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 12.0),
+    return Stack(
+      children: [
+        Positioned(
+          top: 0,
+          child: Container(
+            height: size.height * 0.92,
+            width: size.width,
+            child: Drawer(
+              elevation: 0.0,
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: <Widget>[
+                  DrawerHeader(
                     child: Container(
-                      width: size.width * 0.7,
-                      height: 150,
-                      color: Colors.red,
+                      width: 100,
+                      height: 100,
                       child: Stack(
                         children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
+                          Padding(
+                            padding: const EdgeInsets.only(top: 12.0),
                             child: Container(
-                              decoration: new BoxDecoration(
-                                  border: Border.all(color: kPrimaryColor),
-                                  shape: BoxShape.circle,
-                                  color: Colors.white),
-                              width: 95,
-                              height: 95,
+                              width: size.width * 0.7,
+                              height: 150,
                               child: Stack(
                                 children: [
                                   Align(
+                                    alignment: Alignment.centerLeft,
                                     child: Container(
-                                      alignment: Alignment.center,
                                       decoration: new BoxDecoration(
+                                          border:
+                                              Border.all(color: kPrimaryColor),
                                           shape: BoxShape.circle,
-                                          color: Colors.blue),
-                                      width: 85,
-                                      height: 85,
+                                          color: Colors.white),
+                                      width: 95,
+                                      height: 95,
+                                      child: Stack(
+                                        children: [
+                                          Align(
+                                            child: Container(
+                                              child: Text(
+                                                'A',
+                                                style: TextStyle(
+                                                    fontSize: 30,
+                                                    color: Color.fromRGBO(
+                                                        255, 255, 255, 0.6)),
+                                              ),
+                                              alignment: Alignment.center,
+                                              decoration: new BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: Colors.blue),
+                                              width: 85,
+                                              height: 85,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Positioned(
+                                        top: 20,
+                                        left: size.width * 0.27,
+                                        child: Container(
+                                          child: Text(
+                                            'Aluno',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 23,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        top: 50,
+                                        left: size.width * 0.27,
+                                        child: Container(
+                                          child: Text(
+                                            'Visitante',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
                             ),
                           ),
+                          Stack(
+                            children: [
+                              Positioned(
+                                top: 35,
+                                right: 10,
+                                child: Container(
+                                  child: RotationTransition(
+                                      turns: AlwaysStoppedAnimation(45 / 360),
+                                      child: Icon(
+                                        Icons.add_circle,
+                                        color: kPrimaryColor,
+                                      )),
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/cover.jpg'))),
+                  ),
+                  Column(
+                    children: [
+                      SideField(
+                        text: 'MEU PERFIL',
+                        icon: Icons.perm_identity,
+                        onTap: () => {},
+                      ),
+                      SideField(
+                        text: 'MEUS CURSOS',
+                        icon: OMIcons.localLibrary,
+                        onTap: () => {},
+                      ),
+                      SideField(
+                        text: 'MEUS CERTIFICADOS',
+                        icon: OMIcons.school,
+                        onTap: () => {},
+                      ),
+                      SideField(
+                        text: 'CONTRIBUA',
+                        icon: OMIcons.touchApp,
+                        onTap: () => {},
+                      ),
+                      SideField(
+                        text: 'SOBRE',
+                        icon: OMIcons.libraryBooks,
+                        onTap: () => {},
+                      ),
+                      SideField(
+                        text: 'AJUDA',
+                        icon: OMIcons.panTool,
+                        onTap: () => {},
+                      ),
+                      SideField(
+                        text: 'CONTATO',
+                        icon: OMIcons.permPhoneMsg,
+                        onTap: () => {},
+                      ),
+                      SideField(
+                        text: 'IMPRENSA',
+                        icon: OMIcons.volumeUp,
+                        onTap: () => {},
+                      ),
+                      SideField(
+                        text: 'INVESTIDORES',
+                        icon: OMIcons.attachMoney,
+                        onTap: () => {},
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/cover.jpg'))),
           ),
-
-          //CONTEINERIZAR
-          ////////////////////////////////////////////////////////////
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                Icons.perm_identity,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'MEU PERFIL',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {},
-            ),
-          ),
-          //////////////////////////////////////////////////////////////////////////
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                OMIcons.localLibrary,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'MEUS CURSOS',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {Navigator.of(context).pop()},
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                OMIcons.school,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'MEUS CERTIFICADOS',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {Navigator.of(context).pop()},
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                OMIcons.touchApp,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'CONTRIBUA',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {Navigator.of(context).pop()},
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                OMIcons.libraryBooks,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'SOBRE',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {Navigator.of(context).pop()},
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                OMIcons.panTool,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'AJUDA',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {},
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                OMIcons.permPhoneMsg,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'CONTATO',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {},
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                OMIcons.volumeUp,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'IMPRENSA',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {},
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(230, 230, 230, 1))),
-            child: ListTile(
-              leading: Icon(
-                OMIcons.attachMoney,
-                color: kPrimaryColor,
-              ),
-              title: Text(
-                'INVESTIDORES',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(115, 115, 115, 1)),
-              ),
-              onTap: () => {},
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
