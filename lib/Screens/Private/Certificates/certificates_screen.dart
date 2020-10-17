@@ -13,7 +13,7 @@ class CertificatesScreen extends StatelessWidget {
       appBar: AppBar(
         shadowColor: Colors.transparent,
         title: Text(
-          'Meus certificados',
+          'MEUS CERTIFICADOS',
           style: TextStyle(
               color: kPrimaryColor, fontSize: 16, fontWeight: FontWeight.w900),
         ),
@@ -42,21 +42,21 @@ class CertificatesScreen extends StatelessWidget {
                 height: size.height * 0.33,
               ),
               CourseCard(
-                courseName: 'O que fazer com sua grana?',
-                courseAuthor: 'Thiago Moraes',
-                certificateImagePath: "assets/images/transparent-grana.png",
-                isCertificate: true,
-                courseImage: "assets/images/moeda.png",
-                alignment: Alignment.topCenter,
-                width: size.width * 0.6,
-                height: size.height * 0.33,
-              ),
-              CourseCard(
                 courseName: 'Fotografia na Raça',
                 courseAuthor: 'Marcela Tavares',
                 courseImage: "assets/images/fotografia.png",
                 isCertificate: true,
                 certificateImagePath: "assets/images/transparent-photo.png",
+                alignment: Alignment.topCenter,
+                width: size.width * 0.6,
+                height: size.height * 0.33,
+              ),
+              CourseCard(
+                courseName: 'O que fazer com sua grana?',
+                courseAuthor: 'Thiago Moraes',
+                certificateImagePath: "assets/images/transparent-grana.png",
+                isCertificate: true,
+                courseImage: "assets/images/moeda.png",
                 alignment: Alignment.topCenter,
                 width: size.width * 0.6,
                 height: size.height * 0.33,

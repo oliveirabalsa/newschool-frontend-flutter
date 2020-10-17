@@ -37,6 +37,12 @@ class CourseCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(courseImage), fit: BoxFit.cover),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                            color: Colors.black54,
+                            blurRadius: 1.0,
+                            offset: Offset(0.0, 0.75))
+                      ],
                     ),
                     alignment: Alignment.topRight,
                     width: size.width * 0.8,
@@ -74,7 +80,15 @@ class CourseCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    decoration: new BoxDecoration(color: kPrimaryColor),
+                    decoration: new BoxDecoration(
+                      color: kPrimaryColor,
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                            color: Colors.black54,
+                            blurRadius: 8.0,
+                            offset: Offset(0.0, 3))
+                      ],
+                    ),
                     alignment: Alignment.topRight,
                     width: size.width * 0.8,
                     height: size.height * 0.23,
