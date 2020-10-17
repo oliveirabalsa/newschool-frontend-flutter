@@ -20,6 +20,9 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   bool _isObscure = true;
+
+  RegExp emailValidator = new RegExp(r'.+@.+\..+');
+
   void _togglevisibility() {
     setState(() {
       _isObscure = !_isObscure;
@@ -49,6 +52,8 @@ class _BodyState extends State<Body> {
               ),
               SizedBox(height: size.height * 0.05),
               RoundedInputField(
+                validator: (val) =>
+                    !emailValidator.hasMatch(val) ? 'Email inválido' : null,
                 hintText: "E-mail",
                 onChanged: (value) {
                   email = value;
@@ -80,14 +85,11 @@ class _BodyState extends State<Body> {
                 text: "ENTRAR",
                 press: () {
                   if (_formKey.currentState.validate()) {
-                    print('bom');
-                    Scaffold.of(context)
-                        .showSnackBar(SnackBar(content: Text('oi')));
+                    if (email.trim() == 'leo@leo.com' && password == '123456') {
+                      print('siii');
+                      Navigator.pushNamed(context, '/home');
+                    }
                   }
-                  //   if (email.trim() == 'leo@leo.com' && password == '123456') {
-                  //     print('siii');
-                  //     Navigator.pushNamed(context, '/home');
-                  // }
                 },
               ),
               SizedBox(height: size.height * 0.03),

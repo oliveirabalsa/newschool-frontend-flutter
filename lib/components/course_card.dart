@@ -1,31 +1,84 @@
 import 'package:flutter/material.dart';
+import 'package:newschoolfrontendflutter/constants.dart';
 
 class CourseCard extends StatelessWidget {
   final String courseName;
   final String courseAuthor;
   final String courseImage;
+  final Alignment alignment;
+  final double width;
+  final double height;
+  final bool isCertificate;
+  final String certificateImagePath;
 
   const CourseCard(
-      {Key key, this.courseName, this.courseAuthor, this.courseImage})
+      {Key key,
+      this.courseName,
+      this.courseAuthor,
+      this.courseImage,
+      this.alignment,
+      this.width,
+      this.height,
+      this.isCertificate,
+      this.certificateImagePath})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Align(
-      alignment: Alignment.topLeft,
+      alignment: alignment,
       child: Container(
-        width: size.width * 0.8,
-        height: size.height * 0.33,
+        width: width,
+        height: height,
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(courseImage), fit: BoxFit.cover)),
-              alignment: Alignment.topRight,
-              width: size.width * 0.8,
-              height: size.height * 0.23,
-            ),
+            isCertificate == null
+                ? Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(courseImage), fit: BoxFit.cover),
+                    ),
+                    alignment: Alignment.topRight,
+                    width: size.width * 0.8,
+                    height: size.height * 0.23,
+                  )
+                : Container(
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: <Widget>[
+                        Positioned(
+                          top: 0,
+                          left: 0,
+                          bottom: 0,
+                          right: 0,
+                          child: Stack(
+                            children: [
+                              Center(
+                                child: Image.asset(
+                                  "assets/images/medalha-imagem.png",
+                                  fit: BoxFit.cover,
+                                  width: 34,
+                                  height: 43.45,
+                                ),
+                              ),
+                              Image.asset(
+                                certificateImagePath != null
+                                    ? certificateImagePath
+                                    : null,
+                                fit: BoxFit.cover,
+                                width: size.width * 0.8,
+                                height: size.height * 0.24,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    decoration: new BoxDecoration(color: kPrimaryColor),
+                    alignment: Alignment.topRight,
+                    width: size.width * 0.8,
+                    height: size.height * 0.23,
+                  ),
             Padding(
               padding: const EdgeInsets.only(top: 5),
               child: Stack(

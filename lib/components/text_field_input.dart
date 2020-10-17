@@ -6,6 +6,7 @@ class TextFieldInput extends StatefulWidget {
   final String labelText;
   final bool isVisible;
   final icon;
+  final validator;
   final ValueChanged<String> onChanged;
 
   const TextFieldInput({
@@ -16,6 +17,7 @@ class TextFieldInput extends StatefulWidget {
     this.icon,
     this.isVisible,
     EdgeInsets contentPadding,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -38,7 +40,8 @@ class _TextFieldInputState extends State<TextFieldInput> {
                 accentColor: Colors.orange,
                 hintColor: kPrimaryColor,
               ),
-              child: TextField(
+              child: TextFormField(
+                validator: widget.validator,
                 obscureText: (widget.isVisible != null ? true : false),
                 enableInteractiveSelection: false,
                 cursorColor: kPrimaryColor,

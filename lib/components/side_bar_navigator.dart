@@ -12,10 +12,10 @@ class NavDrawer extends StatelessWidget {
         Positioned(
           top: 0,
           child: Container(
-            height: size.height * 0.92,
+            height: size.height,
             width: size.width,
             child: Drawer(
-              elevation: 0.0,
+              elevation: 20,
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: <Widget>[

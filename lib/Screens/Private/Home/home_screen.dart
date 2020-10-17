@@ -12,7 +12,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       drawerScrimColor: Colors.transparent,
       drawer: NavDrawer(),
-      bottomNavigationBar: NavigationBar(),
+      bottomNavigationBar: NavigationBar(
+        index: 0,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -65,16 +67,25 @@ class HomeScreen extends StatelessWidget {
                 courseName: 'Matemática na Prática',
                 courseAuthor: 'Marcela Tavares',
                 courseImage: "assets/images/paint.png",
+                alignment: Alignment.topLeft,
+                width: size.width * 0.8,
+                height: size.height * 0.33,
               ),
               CourseCard(
                 courseName: 'O que fazer com sua grana?',
                 courseAuthor: 'Thiago Moraes',
                 courseImage: "assets/images/moeda.png",
+                alignment: Alignment.topLeft,
+                width: size.width * 0.8,
+                height: size.height * 0.33,
               ),
               CourseCard(
                 courseName: 'Fotografia na Raça',
                 courseAuthor: 'Marcela Tavares',
                 courseImage: "assets/images/fotografia.png",
+                alignment: Alignment.topLeft,
+                width: size.width * 0.8,
+                height: size.height * 0.33,
               ),
             ],
           ),

@@ -7,44 +7,46 @@ import 'package:newschoolfrontendflutter/constants.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 
 class NavigationBar extends StatefulWidget {
+  final int index;
+
+  const NavigationBar({Key key, this.index}) : super(key: key);
   @override
   _NavigationBarState createState() => _NavigationBarState();
 }
 
 class _NavigationBarState extends State<NavigationBar> {
-  int index;
   @override
   Widget build(BuildContext context) {
     return (BottomNavigationBar(
-      elevation: 0,
+      elevation: 30.0,
       type: BottomNavigationBarType.fixed,
-      currentIndex: (index != null ? index : 0),
+      currentIndex: (widget.index != null ? widget.index : 0),
       selectedItemColor: kPrimaryColor,
       unselectedItemColor: Colors.grey[600],
-      selectedFontSize: 12,
-      unselectedFontSize: 12,
+      selectedFontSize: 8,
+      unselectedFontSize: 8,
       onTap: (int value) {
         setState(() {
           print(value);
           switch (value) {
             case 0:
-              Navigator.pushNamed(context, '/home');
+              Navigator.pushReplacementNamed(context, '/home');
               break;
             case 1:
+              Navigator.pushReplacementNamed(context, '/profile');
               // do something else
               break;
             case 2:
+              Navigator.pushReplacementNamed(context, '/courses');
               // do something else
               break;
             case 3:
-              // Navigator.pushNamed(context, '/certificates');
+              Navigator.pushReplacementNamed(context, '/certificates');
               break;
             case 4:
               Scaffold.of(context).openDrawer();
               break;
           }
-          print(index);
-          index = value;
         });
       },
       items: [
