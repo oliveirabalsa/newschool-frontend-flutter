@@ -130,17 +130,18 @@ class NavDrawer extends StatelessWidget {
                       SideField(
                         text: 'MEU PERFIL',
                         icon: Icons.perm_identity,
-                        onTap: () => {},
+                        onTap: () => {Navigator.pushNamed(context, '/profile')},
                       ),
                       SideField(
                         text: 'MEUS CURSOS',
                         icon: OMIcons.localLibrary,
-                        onTap: () => {},
+                        onTap: () => {Navigator.pushNamed(context, '/courses')},
                       ),
                       SideField(
                         text: 'MEUS CERTIFICADOS',
                         icon: OMIcons.school,
-                        onTap: () => {},
+                        onTap: () =>
+                            {Navigator.pushNamed(context, '/certificates')},
                       ),
                       SideField(
                         text: 'CONTRIBUA',
@@ -160,7 +161,8 @@ class NavDrawer extends StatelessWidget {
                       SideField(
                         text: 'CONTATO',
                         icon: OMIcons.permPhoneMsg,
-                        onTap: () => {},
+                        onTap: () =>
+                            {Navigator.pushNamed(context, '/contact-us')},
                       ),
                       SideField(
                         text: 'IMPRENSA',

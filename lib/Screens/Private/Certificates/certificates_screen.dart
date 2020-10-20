@@ -38,8 +38,11 @@ class CertificatesScreen extends StatelessWidget {
                 courseImage: "assets/images/paint.png",
                 isCertificate: true,
                 alignment: Alignment.topCenter,
-                width: size.width * 0.6,
+                width: size.width * 0.7,
                 height: size.height * 0.33,
+                onPress: () {
+                  Navigator.pushNamed(context, '/share-certificate');
+                },
               ),
               CourseCard(
                 courseName: 'Fotografia na Raça',
@@ -48,8 +51,11 @@ class CertificatesScreen extends StatelessWidget {
                 isCertificate: true,
                 certificateImagePath: "assets/images/transparent-photo.png",
                 alignment: Alignment.topCenter,
-                width: size.width * 0.6,
+                width: size.width * 0.7,
                 height: size.height * 0.33,
+                onPress: () {
+                  Navigator.pushNamed(context, '/share-certificate');
+                },
               ),
               CourseCard(
                 courseName: 'O que fazer com sua grana?',
@@ -58,8 +64,11 @@ class CertificatesScreen extends StatelessWidget {
                 isCertificate: true,
                 courseImage: "assets/images/moeda.png",
                 alignment: Alignment.topCenter,
-                width: size.width * 0.6,
+                width: size.width * 0.7,
                 height: size.height * 0.33,
+                onPress: () {
+                  Navigator.pushNamed(context, '/share-certificate');
+                },
               ),
             ],
           ),

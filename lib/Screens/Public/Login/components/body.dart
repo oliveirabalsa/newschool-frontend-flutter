@@ -8,6 +8,7 @@ import 'package:newschoolfrontendflutter/Screens/Public/Login/components/or_divi
 import 'package:newschoolfrontendflutter/Screens/Public/Login/components/social_icon.dart';
 import 'package:newschoolfrontendflutter/components/rounded_input_field.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:newschoolfrontendflutter/constants.dart';
 
 class Body extends StatefulWidget {
   const Body({
@@ -82,7 +83,10 @@ class _BodyState extends State<Body> {
                 },
               ),
               RoundedButton(
+                hasBorderRadius: true,
                 text: "ENTRAR",
+                borderColor: Colors.white,
+                fontSize: 12,
                 press: () {
                   if (_formKey.currentState.validate()) {
                     if (email.trim() == 'leo@leo.com' && password == '123456') {

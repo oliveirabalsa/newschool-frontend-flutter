@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'OLÁ JOÃO',
+                    'OLÁ LEO',
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w900,

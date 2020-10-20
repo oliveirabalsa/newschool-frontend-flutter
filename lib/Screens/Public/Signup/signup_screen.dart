@@ -10,6 +10,8 @@ import 'package:newschoolfrontendflutter/constants.dart';
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
+
+  RegExp emailValidator = new RegExp(r'.+@.+\..+');
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {

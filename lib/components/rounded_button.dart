@@ -3,14 +3,19 @@ import 'package:newschoolfrontendflutter/constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
+  final bool hasBorderRadius;
+  final double fontSize;
   final Function press;
-  final Color color, textColor;
+  final Color color, textColor, borderColor;
   const RoundedButton({
     Key key,
     this.text,
     this.press,
     this.color = kPrimaryColor,
     this.textColor = Colors.white,
+    this.borderColor,
+    this.fontSize,
+    this.hasBorderRadius,
   }) : super(key: key);
 
   @override
@@ -25,13 +30,16 @@ class RoundedButton extends StatelessWidget {
           color: Colors.transparent,
           shape: RoundedRectangleBorder(
               side: BorderSide(
-                  color: Colors.white, width: 1, style: BorderStyle.solid),
-              borderRadius: BorderRadius.circular(5)),
+                  color: borderColor, width: 1, style: BorderStyle.solid),
+              borderRadius:
+                  BorderRadius.circular(hasBorderRadius != null ? 5 : 0)),
           onPressed: press,
           child: Text(
             text,
             style: TextStyle(
-                color: textColor, fontWeight: FontWeight.w900, fontSize: 12),
+                color: textColor,
+                fontWeight: FontWeight.w900,
+                fontSize: fontSize),
           ),
         ),
       ),
