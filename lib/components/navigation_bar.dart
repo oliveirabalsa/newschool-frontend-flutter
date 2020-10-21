@@ -56,12 +56,12 @@ class _NavigationBarState extends State<NavigationBar> {
           backgroundColor: Colors.white,
         ),
         BottomNavigationBarItem(
-            title: Text('Perfil'), icon: Icon(Icons.perm_identity)),
+            title: Text('Perfil'), icon: Icon(Icons.person)),
         BottomNavigationBarItem(
-            title: Text('Meus cursos'), icon: Icon(OMIcons.localLibrary)),
+            title: Text('Meus cursos'), icon: Icon(Icons.local_library)),
         BottomNavigationBarItem(
           title: Text('Certificados'),
-          icon: Icon(OMIcons.school),
+          icon: Icon(Icons.school),
           backgroundColor: Colors.white,
         ),
         BottomNavigationBarItem(
